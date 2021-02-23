@@ -1,0 +1,51 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: mdsregistryapi
+  labels:
+    app: mdsregistryapi
+    app.kubernetes.io/component: mdsregistryapi
+    app.kubernetes.io/instance: mdsregistryapi
+    app.kubernetes.io/part-of: mdsregistryapi-app
+    app.openshift.io/runtime-version: latest
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mdsregistryapi
+  template:
+    metadata:
+      labels:
+        app: mdsregistryapi
+        deploymentconfig: mdsregistryapi
+    spec:
+      containers:
+        - name: mdsregistryapi
+          image: imagename-is-populated-by-pipeline
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+            - containerPort: 8443
+              protocol: TCP
+          env:
+            - name: ASPNETCORE_ENVIRONMENT
+              value: Staging
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          imagePullPolicy: IfNotPresent
+      imagePullSecrets: 
+      - name: acr
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      securityContext: {}
+      schedulerName: default-scheduler
+     
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 25%
+      maxSurge: 25%
+  revisionHistoryLimit: 10
+  progressDeadlineSeconds: 600
