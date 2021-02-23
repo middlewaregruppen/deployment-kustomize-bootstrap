@@ -11,7 +11,7 @@ In order to use this, just run the following command in a bash shell
 You will be asked to provide the following information
 
 1. The OpenShift project name you want to bootstrap
-2. The OpenShify environment names for
+2. The OpenShift environment names for
    1. dev
    2. test
    3. prod
