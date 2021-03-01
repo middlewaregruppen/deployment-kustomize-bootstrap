@@ -2,11 +2,11 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    app: mdsregistryapi
-    app.kubernetes.io/component: mdsregistryapi
-    app.kubernetes.io/instance: mdsregistryapi
-    app.kubernetes.io/part-of: mdsregistryapi-app
-  name: mdsregistryapi
+    app: projectname
+    app.kubernetes.io/component: projectname
+    app.kubernetes.io/instance: projectname
+    app.kubernetes.io/part-of: projectname-app
+  name: projectname
 spec:
   ports:
   - name: 443-tcp
@@ -18,7 +18,7 @@ spec:
     protocol: TCP
     targetPort: 8080
   selector:
-    app: mdsregistryapi
-    deploymentconfig: mdsregistryapi
+    app: projectname
+    deploymentconfig: projectname
   sessionAffinity: None
   type: ClusterIP

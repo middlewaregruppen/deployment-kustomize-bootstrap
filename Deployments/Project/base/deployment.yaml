@@ -1,26 +1,26 @@
 kind: Deployment
 apiVersion: apps/v1
 metadata:
-  name: mdsregistryapi
+  name: projectname
   labels:
-    app: mdsregistryapi
-    app.kubernetes.io/component: mdsregistryapi
-    app.kubernetes.io/instance: mdsregistryapi
-    app.kubernetes.io/part-of: mdsregistryapi-app
+    app: projectname
+    app.kubernetes.io/component: projectname
+    app.kubernetes.io/instance: projectname
+    app.kubernetes.io/part-of: projectname-app
     app.openshift.io/runtime-version: latest
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: mdsregistryapi
+      app: projectname
   template:
     metadata:
       labels:
-        app: mdsregistryapi
-        deploymentconfig: mdsregistryapi
+        app: projectname
+        deploymentconfig: projectname
     spec:
       containers:
-        - name: mdsregistryapi
+        - name: projectname
           image: imagename-is-populated-by-pipeline
           ports:
             - containerPort: 8080
