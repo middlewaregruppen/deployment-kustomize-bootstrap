@@ -8,7 +8,13 @@ In order to use this, just run the following command in a bash shell
 ./bootstrap.sh
 ```
 
-You will be asked to provide the following information
+Or in Powershell
+
+```powershell
+.\bootstrap.ps1
+```
+
+Both scripts do the exact same thing. You will be asked to provide the following information
 
 1. The OpenShift project name you want to bootstrap
 2. How many environments you need (max 5)
@@ -44,5 +50,4 @@ You can copy the ```Deployments``` folder to your project and commit it, or if y
 
 ### To be done
 
-1. Offer the same script in powershell
-2. Add in an option for number of replicas during the environment phase with a default of 1 replica
+1. Add in an option for number of replicas during the environment phase with a default of 1 replica
